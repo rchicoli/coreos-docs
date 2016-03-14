@@ -89,7 +89,13 @@ coreos:
       command: stop
     - name: locksmithd.service
       command: stop
+    - name: update-engine.service
+      command: mask
+    - name: locksmithd.service
+      command: mask
 ```
+
+Alternatively, to manually mask update-engine run `systemctl mask update-engine.service`. To reverse this remove the stanza from the cloud-config and run `systemctl unmask update-engine.service`
 
 ## Updating Behind a Proxy
 
